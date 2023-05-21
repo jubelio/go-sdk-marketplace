@@ -1,0 +1,114 @@
+{
+  "message": "success",
+  "request_id": "167c9737-c36a-4701-869d-8930157de2af",
+  "error": "",
+  "warning": "",
+  "response": {
+    "page_result": {
+      "page_size": 5,
+      "next_cursor": {
+        "next_message_time_nano": "1612792485343461649",
+        "conversation_id": "0"
+      },
+      "more": true
+    },
+    "conversations": [
+      {
+        "conversation_id": "38732689394223980",
+        "to_id": 9030508,
+        "to_name": "tsx_buyer1003",
+        "to_avatar": "",
+        "shop_id": 1238762,
+        "unread_count": 0,
+        "pinned": false,
+        "mute": false,
+        "last_read_message_id": "2064780411604648076",
+        "latest_message_id": "2064780411604648076",
+        "latest_message_type": "text",
+        "latest_message_content": {
+          "text": "你好"
+        },
+        "latest_message_from_id": 9030508,
+        "last_message_timestamp": 1614853200441470571,
+        "last_message_option": 16512,
+        "max_general_option_hide_time": "9223372036854775"
+      },
+      {
+        "conversation_id": "38732690586147679",
+        "to_id": 1200954207,
+        "to_name": "testsgymt.sg",
+        "to_avatar": "",
+        "shop_id": 1238762,
+        "unread_count": 0,
+        "pinned": false,
+        "mute": false,
+        "last_read_message_id": "2063269119293227148",
+        "latest_message_id": "2063269119293227148",
+        "latest_message_type": "product",
+        "latest_message_content": null,
+        "latest_message_from_id": 1200954207,
+        "last_message_timestamp": 1614132560106927110,
+        "last_message_option": 0,
+        "max_general_option_hide_time": "9223372036854775"
+      },
+      {
+        "conversation_id": "2234662903192365",
+        "to_id": 520298,
+        "to_name": "wnnsgseller1",
+        "to_avatar": "https://cf.shopee.sg/file/0375cad334948af20f1840e1b89d3180",
+        "shop_id": 1238762,
+        "unread_count": 0,
+        "pinned": false,
+        "mute": false,
+        "last_read_message_id": "2062815381336178828",
+        "latest_message_id": "2062815381336178828",
+        "latest_message_type": "text",
+        "latest_message_content": {
+          "text": "dd"
+        },
+        "latest_message_from_id": 9018157,
+        "last_message_timestamp": 1613916200989929976,
+        "last_message_option": 0,
+        "max_general_option_hide_time": "9223372036854775"
+      },
+      {
+        "conversation_id": "38732690586055680",
+        "to_id": 1200862208,
+        "to_name": "ymtsg01",
+        "to_avatar": "",
+        "shop_id": 1238762,
+        "unread_count": 0,
+        "pinned": false,
+        "mute": false,
+        "last_read_message_id": "2060581150381916300",
+        "latest_message_id": "2060581150381916300",
+        "latest_message_type": "video",
+        "latest_message_content": null,
+        "latest_message_from_id": 1200862208,
+        "last_message_timestamp": 1612850836649659784,
+        "last_message_option": 0,
+        "max_general_option_hide_time": "9223372036854775"
+      },
+      {
+        "conversation_id": "38732689394223977",
+        "to_id": 9030505,
+        "to_name": "tsx_buyer1000",
+        "to_avatar": "https://cf.shopee.sg/file/0375cad334948af20f1840e1b89d3180",
+        "shop_id": 1238762,
+        "unread_count": 8,
+        "pinned": false,
+        "mute": false,
+        "last_read_message_id": "2052121489177706636",
+        "latest_message_id": "2060458778819657868",
+        "latest_message_type": "text",
+        "latest_message_content": {
+          "text": "11"
+        },
+        "latest_message_from_id": 9030505,
+        "last_message_timestamp": 1612792485343461649,
+        "last_message_option": 0,
+        "max_general_option_hide_time": "9223372036854775"
+      }
+    ]
+  }
+}
