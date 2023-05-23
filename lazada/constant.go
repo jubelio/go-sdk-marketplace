@@ -1,7 +1,7 @@
 package lazada
 
 // API Names are all the paths to the various API calls that we use
-var apiNames = map[string]string{
+var ApiNames = map[string]string{
 	"AccessToken":        "https://auth.lazada.com/rest/auth/token/create",
 	"RefreshToken":       "https://auth.lazada.com/rest/auth/token/refresh",
 	"GetBrands":          "/brands/get",

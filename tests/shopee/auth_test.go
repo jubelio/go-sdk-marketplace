@@ -30,6 +30,8 @@ func Test_GetAccessToken(t *testing.T) {
 	httpmock.RegisterResponder("POST", fmt.Sprintf("%s/api/v2/auth/token/get", app.APIURL),
 		httpmock.NewBytesResponder(200, loadFixture("access_token.json")))
 
+	fmt.Println(app.APIURL)
+
 	res, err := client.Auth.GetAccessToken(123456, 0, "testcode")
 	if err != nil {
 		t.Errorf("Auth.GetToken error: %s", err)
@@ -50,6 +52,7 @@ func Test_RefreshAccessToken(t *testing.T) {
 	httpmock.RegisterResponder("POST", fmt.Sprintf("%s/api/v2/auth/access_token/get", app.APIURL),
 		httpmock.NewBytesResponder(200, loadFixture("refresh_access_token.json")))
 
+	fmt.Println(app.APIURL)
 	res, err := client.Auth.RefreshAccessToken(123456, 0, "testcode")
 	if err != nil {
 		t.Errorf("Auth.GetToken error: %s", err)

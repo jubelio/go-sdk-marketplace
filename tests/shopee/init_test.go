@@ -47,7 +47,7 @@ func teardown() {
 }
 
 func loadFixture(filename string) []byte {
-	f, err := ioutil.ReadFile("../mockdata/" + filename)
+	f, err := ioutil.ReadFile("../../mockdata/shopee/" + filename)
 	if err != nil {
 		panic(fmt.Sprintf("Cannot load fixture %v", filename))
 	}
@@ -55,7 +55,7 @@ func loadFixture(filename string) []byte {
 }
 
 func loadMockData(filename string, out interface{}) {
-	f, err := ioutil.ReadFile("../mockdata/" + filename)
+	f, err := ioutil.ReadFile("../../mockdata/shopee/" + filename)
 	if err != nil {
 		panic(fmt.Sprintf("Cannot load fixture %v", filename))
 	}
