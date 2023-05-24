@@ -11,6 +11,13 @@ var ApiNames = map[string]string{
 	"CreateProduct":      "/product/create",
 	"UpdateProduct":      "/product/update",
 	"GetProducts":        "/products/get",
+	"GetSessionList":     "/im/session/list",
+	"GetSessionDetail":   "/im/session/get",
+	"GetMessageList":     "/im/message/list",
+	"MessageRecall":      "/im/message/recall",
+	"OpenSession":        "/im/session/open",
+	"ReadSession":        "/im/session/read",
+	"SendMessage":        "/im/message/send",
 }
 
 type Region string
@@ -41,3 +48,15 @@ var endpoints = map[Region]string{
 	Myanmar:     "https://api.shop.com.mm/",
 	Malaysia:    "https://api.lazada.com.my/",
 }
+
+// Message templpate ID to send message
+const (
+	NormalTextMessage         = 1
+	PictureMessage            = 3
+	EmojiMessage              = 4
+	ItemMessage               = 10006
+	OrderMessage              = 10007
+	VoucherMessage            = 10008
+	InviteBuyersFollowMessage = 10010
+	VideoMessage              = 6
+)

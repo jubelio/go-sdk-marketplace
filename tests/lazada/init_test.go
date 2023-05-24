@@ -10,12 +10,13 @@ import (
 )
 
 var (
-	client *lazada.LazadaClient
+	client *lazada.Client
 )
 
 func setup() {
-	client = lazada.NewClient("12318231", "2190381902", lazada.Indonesia)
-	httpmock.ActivateNonDefault(client.Client.GetClient())
+	client = lazada.NewClient("117532", "G5VwB0wyhk3XQEsklCfmHSF2kP2luEqS", lazada.Indonesia)
+
+	httpmock.ActivateNonDefault(client.Client)
 }
 
 func teardown() {

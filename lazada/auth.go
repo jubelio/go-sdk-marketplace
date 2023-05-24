@@ -1,24 +1,25 @@
 package lazada
 
 import (
+	"bytes"
 	"context"
 	"encoding/json"
 	"fmt"
 	"net/url"
 	"time"
+
+	"github.com/pkg/errors"
 )
 
 // The Auth Service deals with doing the OAuth flow and exchanging codes for tokens.
 // It also lets you refresh tokens in order to get new credentials.
-type AuthService interface {
-	GetAuthURL(state string, redirectURL string) string
-	GetAccessToken(ctx context.Context, code string) (*Token, error)
-	RefreshToken(ctx context.Context, refreshToken string) (*Token, error)
-}
+// type AuthService interface {
+// 	GetAuthURL(state string, redirectURL string) string
+// 	GetAccessToken(ctx context.Context, code string) (*Token, error)
+// 	RefreshToken(ctx context.Context, refreshToken string) (*Token, error)
+// }
 
-type AuthServiceOp struct {
-	sdk *LazadaClient
-}
+type AuthService service
 
 // Token is the data returned when doing an Oauth Flow through the open platform
 type Token struct {
@@ -66,11 +67,11 @@ func (t *Token) calculateExpires(exp int) time.Time {
 // AuthURL returns the URL you should use to start the OAuth flow
 // It takes in the URL that the user should be returned to as redirect
 // and a state variable which should be a random string
-func (c *AuthServiceOp) GetAuthURL(state string, redirectURL string) string {
+func (c *AuthService) GetAuthURL(state string, redirectURL string) string {
 	baseURL, _ := url.Parse("https://auth.lazada.com/oauth/authorize")
 
 	q := baseURL.Query()
-	q.Set("client_id", c.sdk.APIKey)
+	q.Set("client_id", c.client.appKey)
 	q.Set("redirect_uri", redirectURL)
 	q.Set("response_type", "code")
 	q.Set("state", state)
@@ -81,48 +82,24 @@ func (c *AuthServiceOp) GetAuthURL(state string, redirectURL string) string {
 }
 
 // Exchange sends the received oauth code to the open platform and returns a token
-func (c *AuthServiceOp) GetAccessToken(ctx context.Context, code string) (*Token, error) {
-	resp, err := c.sdk.Client.R().
-		SetResult(Token{}).
-		SetQueryParam("code", code).
-		Get(ApiNames["AccessToken"])
+func (a *AuthService) GetAccessToken(ctx context.Context, code string) (*Token, error) {
+	req, err := a.client.NewRequest("GET",
+		fmt.Sprintf("%s?code=%s", ApiNames["AccessToken"], code), nil)
 
 	if err != nil {
 		return nil, err
 	}
 
-	if resp.IsError() {
+	var buf bytes.Buffer
+	_, err = a.client.Do(ctx, req, &buf)
+	if err != nil {
 		return nil, err
 	}
 
-	tokenResponse := &Token{}
-	err = json.Unmarshal(resp.Body(), tokenResponse)
-	if err != nil {
-		return nil, fmt.Errorf("error unmarshalling response: %w", err)
+	t := &Token{retrievedAt: time.Now()}
+	if err := json.NewDecoder(&buf).Decode(t); err != nil {
+		return nil, errors.Wrap(err, "cant unmarshal token")
 	}
 
-	return tokenResponse, nil
-}
-
-func (c *AuthServiceOp) RefreshToken(ctx context.Context, refreshToken string) (*Token, error) {
-	resp, err := c.sdk.Client.R().
-		SetResult(Token{}).
-		SetQueryParam("refresh_token", refreshToken).
-		Get(ApiNames["RefreshToken"])
-
-	if err != nil {
-		return nil, fmt.Errorf("error making request: %w", err)
-	}
-
-	if resp.IsError() {
-		return nil, fmt.Errorf("API request error: %v", resp.Status())
-	}
-
-	tokenResponse := &Token{}
-	err = json.Unmarshal(resp.Body(), tokenResponse)
-	if err != nil {
-		return nil, fmt.Errorf("error unmarshalling response: %w", err)
-	}
-
-	return tokenResponse, nil
+	return t, nil
 }

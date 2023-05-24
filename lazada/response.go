@@ -2,8 +2,8 @@ package lazada
 
 type BaseResponse struct {
 	Code       string `json:"code"`
-	Success    string `json:"success"`
-	ErrCode    string `json:"err_code"`
-	RequestID  string `json:"request_id"`
-	ErrMessage string `json:"err_message"`
+	Success    bool   `json:"success,omitempty"`
+	ErrCode    string `json:"err_code,omitempty"`
+	RequestID  string `json:"request_id,omitempty"`
+	ErrMessage string `json:"err_message,omitempty"`
 }
