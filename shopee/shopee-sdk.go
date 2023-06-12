@@ -44,6 +44,7 @@ type ShopeeClient struct {
 	Auth        AuthService
 	Util        UtilService
 	Chat        ChatService
+	Product     ProductService
 }
 
 // A general response error
@@ -71,6 +72,7 @@ func NewClient(app AppConfig, opts ...Option) *ShopeeClient {
 	c.Auth = &AuthServiceOp{client: c}
 	c.Util = &UtilServiceOp{client: c}
 	c.Chat = &ChatServiceOp{client: c}
+	c.Product = &ProductServiceOp{client: c}
 
 	// apply any options
 	for _, opt := range opts {
