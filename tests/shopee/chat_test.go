@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"testing"
 
-	"github.com/apsyadira-jubelio/go-marketplace-sdk/shopee"
+	"github.com/apsyadira-jubelio/go-sdk-marketplace/shopee"
 	"github.com/jarcoal/httpmock"
 )
 
