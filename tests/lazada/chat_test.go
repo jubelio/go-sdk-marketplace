@@ -4,8 +4,8 @@ import (
 	"context"
 	"testing"
 
-	"github.com/apsyadira-jubelio/go-sdk-marketplace/lazada"
 	"github.com/jarcoal/httpmock"
+	"github.com/jubelio/go-sdk-marketplace/lazada"
 	"github.com/stretchr/testify/assert"
 )
 
