@@ -6,7 +6,7 @@ import (
 	"fmt"
 	"log"
 
-	"github.com/apsyadira-jubelio/go-marketplace-sdk/lazada"
+	"github.com/apsyadira-jubelio/go-sdk-marketplace/lazada"
 )
 
 func main() {

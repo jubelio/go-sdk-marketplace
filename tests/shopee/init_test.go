@@ -5,7 +5,7 @@ import (
 	"fmt"
 	"io/ioutil"
 
-	"github.com/apsyadira-jubelio/go-marketplace-sdk/shopee"
+	"github.com/apsyadira-jubelio/go-sdk-marketplace/shopee"
 	"github.com/caarlos0/env"
 	"github.com/jarcoal/httpmock"
 	"github.com/joho/godotenv"

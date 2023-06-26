@@ -6,7 +6,7 @@ import (
 	"os"
 	"testing"
 
-	"github.com/apsyadira-jubelio/go-marketplace-sdk/lazada"
+	"github.com/apsyadira-jubelio/go-sdk-marketplace/lazada"
 	"github.com/jarcoal/httpmock"
 	"github.com/stretchr/testify/assert"
 )

@@ -19,7 +19,7 @@ import (
 	"strings"
 	"time"
 
-	"github.com/apsyadira-jubelio/go-marketplace-sdk/utils"
+	"github.com/apsyadira-jubelio/go-sdk-marketplace/utils"
 	"github.com/google/go-querystring/query"
 	"github.com/pkg/errors"
 )

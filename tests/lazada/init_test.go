@@ -5,7 +5,7 @@ import (
 	"fmt"
 	"io/ioutil"
 
-	"github.com/apsyadira-jubelio/go-marketplace-sdk/lazada"
+	"github.com/apsyadira-jubelio/go-sdk-marketplace/lazada"
 	"github.com/jarcoal/httpmock"
 )
 
