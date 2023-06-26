@@ -1,4 +1,4 @@
-module github.com/apsyadira-jubelio/go-sdk-marketplace
+module github.com/jubelio/go-sdk-marketplace
 
 go 1.18
 

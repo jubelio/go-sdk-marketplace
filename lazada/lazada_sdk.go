@@ -19,8 +19,8 @@ import (
 	"strings"
 	"time"
 
-	"github.com/apsyadira-jubelio/go-sdk-marketplace/utils"
 	"github.com/google/go-querystring/query"
+	"github.com/jubelio/go-sdk-marketplace/utils"
 	"github.com/pkg/errors"
 )
 

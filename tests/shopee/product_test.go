@@ -4,8 +4,8 @@ import (
 	"fmt"
 	"testing"
 
-	"github.com/apsyadira-jubelio/go-sdk-marketplace/shopee"
 	"github.com/jarcoal/httpmock"
+	"github.com/jubelio/go-sdk-marketplace/shopee"
 )
 
 func Test_GetProduct(t *testing.T) {
