@@ -78,3 +78,23 @@ func Test_SendMessage(t *testing.T) {
 		t.Errorf("ToID returned %+v, expected %+v", res.Response.ToID, expectedID)
 	}
 }
+
+func Test_UploadImage(t *testing.T) {
+	setup()
+	defer teardown()
+
+	httpmock.RegisterResponder("POST", fmt.Sprintf("%s/api/v2/sellerchat/upload_image", app.APIURL),
+		httpmock.NewBytesResponder(200, loadFixture("upload_image_resp.json")))
+
+	res, err := client.Chat.UploadImage(shopID, accessToken, "../../mockdata/shopee/test.jpeg")
+
+	if err != nil {
+		t.Errorf("Product.AddItem error: %s", err)
+	}
+
+	t.Logf("Chat.UploadImage: %#v", res)
+	var expectedID int = 1929223982908429
+	if res.Response.FileServerID != expectedID {
+		t.Errorf("ImageInfo.ImageID returned %+v, expected %+v", res.Response.FileServerID, expectedID)
+	}
+}
